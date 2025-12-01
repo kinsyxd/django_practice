@@ -1,0 +1,234 @@
+:root {
+    --color-primary: #0052cc;
+    --color-primary-light: #4d94ff;
+    --color-primary-dark: #003d99;
+    --color-accent: #00b8d4;
+    --color-bg: #f5f9ff;
+    --color-bg-card: #ffffff;
+    --color-text: #0a2540;
+    --color-text-muted: #4a5568;
+    --color-border: #e2e8f0;
+    --shadow-sm: 0 2px 8px rgba(0, 82, 204, 0.08);
+    --radius-md: 4px;
+    --font-family: 'Raleway', sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text);
+    background: var(--color-bg);
+    min-height: 100vh;
+}
+
+.wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hd {
+    background: var(--color-bg-card);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.hd__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    gap: 24px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: 800;
+    font-size: 1.4rem;
+}
+
+.logo__icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+}
+
+.menu {
+    display: flex;
+    gap: 24px;
+}
+
+.menu__link {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.menu__link:hover {
+    color: var(--color-primary);
+}
+
+.content {
+    padding: 40px 0 80px;
+}
+
+.top {
+    text-align: center;
+    padding: 60px 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: var(--radius-md);
+    margin-bottom: 60px;
+    color: white;
+}
+
+.top__title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.top__text {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+    color: var(--color-text);
+}
+
+.cats {
+    margin-bottom: 60px;
+}
+
+.cats__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.cat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 20px;
+    background: var(--color-bg-card);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+
+.cat:hover {
+    border-color: var(--color-primary-light);
+}
+
+.cat__name {
+    font-weight: 600;
+    text-align: center;
+}
+
+.posts__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.doc {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    border: 1px solid var(--color-border);
+}
+
+.doc__header {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.doc__img {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.doc__name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 4px;
+}
+
+.doc__type {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.doc__place {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+}
+
+.doc__rate {
+    margin-bottom: 16px;
+}
+
+.star {
+    color: var(--color-border);
+    font-size: 1.2rem;
+}
+
+.star--fill {
+    color: var(--color-accent);
+}
+
+.doc__text {
+    font-style: italic;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 12px;
+    border-left: 3px solid var(--color-primary-light);
+    padding-left: 16px;
+}
+
+.doc__author {
+    text-align: right;
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .hd__inner {
+        flex-wrap: wrap;
+    }
+    .top__title {
+        font-size: 2rem;
+    }
+}

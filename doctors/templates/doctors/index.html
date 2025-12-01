@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }}</title>
+    <link rel="icon" type="image/png" href="/static/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Vite Dev Server -->
+    <script type="module" src="http://localhost:5173/static/@vite/client"></script>
+    <script type="module" src="http://localhost:5173/static/main.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="hd">
+        <div class="wrap">
+            <div class="hd__inner">
+                <a href="/" class="logo">
+                    <img src="/static/images/logo.png" alt="МедОтзывы" class="logo__icon">
+                    <span class="logo__text">МедОтзывы</span>
+                </a>
+                <nav class="menu">
+                    <a href="#" class="menu__link">Врачи</a>
+                    <a href="#" class="menu__link">Клиники</a>
+                    <a href="#" class="menu__link">Отзывы</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content">
+        <div class="wrap">
+            <!-- Hero Section -->
+            <section class="top">
+                <h1 class="top__title">{{ page_title }}</h1>
+                <p class="top__text">Честные отзывы пациентов помогут вам сделать правильный выбор</p>
+            </section>
+
+            <!-- Specialties Section -->
+            <section class="cats">
+                <h2 class="title">Популярные специальности</h2>
+                <div class="cats__grid">
+                    {% for specialty in specialties %}
+                    <a href="#" class="cat">
+                        <span class="cat__name">{{ specialty.name }}</span>
+                    </a>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <!-- Reviews Section -->
+            <section class="posts">
+                <h2 class="title">Свежие отзывы</h2>
+                <div class="posts__grid">
+                    {% for doctor in doctors %}
+                    <article class="doc">
+                        <div class="doc__header">
+                            <div class="doc__img">
+                                {{ doctor.name|slice:":1" }}
+                            </div>
+                            <div class="doc__info">
+                                <h3 class="doc__name">{{ doctor.name }}</h3>
+                                <p class="doc__type">{{ doctor.specialty }}</p>
+                                <p class="doc__place">{{ doctor.clinic }}</p>
+                            </div>
+                        </div>
+                        <div class="doc__rate">
+                            {% for i in "12345" %}
+                                {% if forloop.counter <= doctor.rating %}
+                                    <span class="star star--fill">★</span>
+                                {% else %}
+                                    <span class="star">☆</span>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <blockquote class="doc__text">
+                            "{{ doctor.review }}"
+                        </blockquote>
+                        <p class="doc__author">— {{ doctor.reviewer }}</p>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+    </main>
+
+</body>
+</html>
+

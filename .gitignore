@@ -1,0 +1,19 @@
+# py
+__pycache__/
+
+# venv
+venv/
+.venv/
+
+# django
+db.sqlite3
+*.log
+
+# node
+node_modules/
+
+# vite
+dist/
+
+# vs
+.vscode/
