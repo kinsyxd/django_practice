@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <script type="module" src="http://localhost:5173/static/@vite/client"></script>
     <script type="module" src="http://localhost:5173/static/main.js"></script>
 </head>
+
 <body>
     <!-- Header -->
     <header class="hd">
@@ -54,39 +56,14 @@
             <!-- Reviews Section -->
             <section class="posts">
                 <h2 class="title">Свежие отзывы</h2>
-                <div class="posts__grid">
-                    {% for doctor in doctors %}
-                    <article class="doc">
-                        <div class="doc__header">
-                            <div class="doc__img">
-                                {{ doctor.name|slice:":1" }}
-                            </div>
-                            <div class="doc__info">
-                                <h3 class="doc__name">{{ doctor.name }}</h3>
-                                <p class="doc__type">{{ doctor.specialty }}</p>
-                                <p class="doc__place">{{ doctor.clinic }}</p>
-                            </div>
-                        </div>
-                        <div class="doc__rate">
-                            {% for i in "12345" %}
-                                {% if forloop.counter <= doctor.rating %}
-                                    <span class="star star--fill">★</span>
-                                {% else %}
-                                    <span class="star">☆</span>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                        <blockquote class="doc__text">
-                            "{{ doctor.review }}"
-                        </blockquote>
-                        <p class="doc__author">— {{ doctor.reviewer }}</p>
-                    </article>
-                    {% endfor %}
+                <div class="posts__grid" id="doctors-list">
+                    <!-- список врачей загружается через JS -->
+                    <p class="loading-text">Загрузка...</p>
                 </div>
             </section>
         </div>
     </main>
 
 </body>
-</html>
 
+</html>
